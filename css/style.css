@@ -42,7 +42,14 @@ html {
     background-color: white;
     align-items: center;
 }
-
+.tasks__item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 10px;
+    border-bottom: solid rgb(230, 227, 227) 1px;
+    padding: 10px;
+    align-items: center;
+}
 .js-newTask {
     flex-basis: 85%;
     align-items: center;

@@ -1,5 +1,7 @@
 {
-   let tasks = [
+   let hideDoneTasks = false;
+   
+    let tasks = [
         {
             content: "test_task_one",
             done: false,
@@ -56,6 +58,11 @@
         render();
     }
 
+    const toggleHideDoneTask = () => {
+        hideDoneTasks = !hideDoneTasks;
+        render();
+    }
+
     const Done = () => {
         const buttonDone = document.querySelector(".allDone_button")
        
@@ -73,7 +80,8 @@
 
         for (const task of tasks) {
             htmlString += `
-            <li class="add_task">
+            <li class="tasks__item ${task.done && hideDoneTasks ? "tasks__item--hidden" : ""} ">
+            
             <button class="js-done">${task.done ? "✔" : ""}</button>
             <span class="newtask${task.done ? " task--done" : ""}">${task.content}</span>
             <button class="js-remove">🗑</button>
